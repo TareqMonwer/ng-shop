@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from 'src/app/components/shared/product-card/product-card.component';
 import { ShortenProductNamePipe } from 'src/app/pipes/shorten-product-name.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { ShortenProductNamePipe } from 'src/app/pipes/shorten-product-name.pipe'
     ShortenProductNamePipe,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
   exports: [
     CommonModule,
