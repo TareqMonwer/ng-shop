@@ -9,6 +9,7 @@ import { BannerComponent } from './components/home/banner/banner.component';
 import { ProductsSectionComponent } from './components/home/products-section/products-section.component';
 import { IndexComponent } from './components/home/index.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SharedModule } from './modules/shared/shared.module';
     BannerComponent,
     ProductsSectionComponent,
     IndexComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
