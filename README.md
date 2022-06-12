@@ -1,6 +1,6 @@
-# Ecommerce
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.17.
+# Angular-Ecommerce
+#### **NOTE:** Please, head over to [this repo for backend codebase.](https://github.com/TareqMonwer/drf-angular-practice)
+This is a painless codebase if you have docker installed on your machine.
 
 ## What NG-features are implemented:
 + `components`, `modules & shared modules`
