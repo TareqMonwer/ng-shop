@@ -7,8 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { BannerComponent } from './components/home/banner/banner.component';
 import { ProductsSectionComponent } from './components/home/products-section/products-section.component';
-import { ProductCardComponent } from './components/shared/product-card/product-card.component';
 import { IndexComponent } from './components/home/index.component';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,13 +16,13 @@ import { IndexComponent } from './components/home/index.component';
     NavbarComponent,
     BannerComponent,
     ProductsSectionComponent,
-    ProductCardComponent,
     IndexComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
