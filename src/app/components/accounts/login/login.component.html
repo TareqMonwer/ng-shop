@@ -1,0 +1,29 @@
+<div class="row justify-content-center align-items-center">
+    <div class="col-12 col-sm-8 col-md-6">
+        <div class="card">
+            <h5 class="card-header">Login to your account!</h5>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <input type="submit" value="Login" class="btn btn-primary btn-block">
+                    <div class="text-center">
+                        Don't have an account? 
+                        <a class="d-inline-block mt-2" 
+                            routerLink="/register" 
+                            routerLinkActive="activebutton" 
+                            ariaCurrentWhenActive="page">
+                            Create New Account
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
