@@ -26,6 +26,7 @@ import { ProductsModule } from './modules/products/products.module';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    
     SharedModule,
     AccountsModule,
     ProductsModule,
