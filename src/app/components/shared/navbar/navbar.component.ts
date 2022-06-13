@@ -13,12 +13,20 @@ export class NavbarComponent implements OnInit {
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.user = this.accountService.getUser()
+    this.getCurrentUser();
   }
 
   logout() {
     this.accountService.logout();
-    window.location.href = "/login";
+    // TODO: Handle route redirection
+    // window.location.href = "/login";
+  }
+
+  getCurrentUser() {
+    this.accountService.currentUser$.subscribe({
+      next: user => this.user = user,
+      error: error => console.log(error)
+    })
   }
 
 }

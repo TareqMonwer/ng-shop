@@ -4,10 +4,13 @@ import { environment } from 'src/environments/environment';
 import { AccountCredentials } from '../models/account-credentials';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user';
+import { ReplaySubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
   loginUrl: string = environment.apiUrl + '/token/';
+  private currentUserSource = new ReplaySubject<User>(1);
+  currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -16,18 +19,19 @@ export class AccountService {
       map((response: User) => {
         const user: User = response;
         if (user) {
-          localStorage.setItem('user', JSON.stringify(user))
+          localStorage.setItem('user', JSON.stringify(user));
+          this.setCurrentUser(user);
         }
       })
     );
   }
 
   logout() {
-    localStorage.removeItem('user')
+    localStorage.removeItem('user');
+    this.currentUserSource.next(null);
   }
 
-  getUser() :User {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user;
+  setCurrentUser(user) {
+    this.currentUserSource.next(user);
   }
 }

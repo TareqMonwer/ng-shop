@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
     this.accountService.login(model).subscribe({
       next: (response) => {
         console.log("User credentials: ", response);
-        window.location.href = "/";
+        // TODO: Handle route redirection
+        // window.location.href = "/";
       },
       error: (error) => {
         console.log(error);
