@@ -8,6 +8,7 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  error: string = '';
 
   constructor(private accountService: AccountService) { }
 
@@ -15,13 +16,19 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(model: AccountCredentials) {
-    this.login(model);
+    this.login(model)
   }
 
   login(model: AccountCredentials) {
     this.accountService.login(model).subscribe({
-      next: (response) => console.log(response),
-      error: (error) => console.log(error)
+      next: (response) => {
+        console.log("User credentials: ", response);
+        window.location.href = "/";
+      },
+      error: (error) => {
+        console.log(error);
+        this.error = error.error.detail;
+      }
     })
   }
 }

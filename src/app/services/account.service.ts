@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AccountCredentials } from '../models/account-credentials';
-import { Observer } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from '../models/user';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -11,6 +12,22 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   login(model: AccountCredentials) {
-    return this.http.post(this.loginUrl, model);
+    return this.http.post(this.loginUrl, model).pipe(
+      map((response: User) => {
+        const user: User = response;
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user))
+        }
+      })
+    );
+  }
+
+  logout() {
+    localStorage.removeItem('user')
+  }
+
+  getUser() :User {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user;
   }
 }

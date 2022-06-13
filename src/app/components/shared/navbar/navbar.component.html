@@ -26,27 +26,27 @@
                         </sup>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="!user" class="nav-item">
                     <a class="nav-link" routerLink="/login" routerLinkActive="activebutton"
                         ariaCurrentWhenActive="page">
                         Login
                     </a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="!user" class="nav-item">
                     <a class="nav-link" routerLink="/register" routerLinkActive="activebutton"
                         ariaCurrentWhenActive="page">
                         Register
                     </a>
                 </li>
-                <li ngbDropdown class="nav-item dropdown">
+                <li *ngIf="user" ngbDropdown class="nav-item dropdown">
                     <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
-                        Username
+                        {{ user.username }}
                     </button>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                         <button ngbDropdownItem>Action - 1</button>
                         <button ngbDropdownItem>Another Action</button>
                         <div class="dropdown-divider"></div>
-                        <button ngbDropdownItem>Logout</button>
+                        <button ngbDropdownItem (click)="logout()">Logout</button>
                     </div>
                 </li>
             </div>

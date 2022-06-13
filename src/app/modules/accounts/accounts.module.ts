@@ -5,6 +5,7 @@ import { RegisterComponent } from '../../components/accounts/register/register.c
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     RouterModule,
+    NgbModule,
     FormsModule,
     HttpClientModule,
   ],
