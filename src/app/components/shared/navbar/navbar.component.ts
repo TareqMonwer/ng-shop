@@ -10,10 +10,11 @@ import { AccountService } from 'src/app/services/account.service';
 export class NavbarComponent implements OnInit {
   user: User;
 
-  constructor(private accountService: AccountService) { }
+  constructor(public accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.getCurrentUser();
+    console.log(this.accountService.currentUser$);
+    
   }
 
   logout() {
@@ -22,11 +23,12 @@ export class NavbarComponent implements OnInit {
     // window.location.href = "/login";
   }
 
-  getCurrentUser() {
-    this.accountService.currentUser$.subscribe({
-      next: user => this.user = user,
-      error: error => console.log(error)
-    })
-  }
+  // getCurrentUser() {
+  //  // Now being managed by service.currentUser$
+  //   this.accountService.currentUser$.subscribe({
+  //     next: user => this.user = user,
+  //     error: error => console.log(error)
+  //   })
+  // }
 
 }
