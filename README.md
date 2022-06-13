@@ -4,7 +4,8 @@ This is a painless codebase if you have docker installed on your machine.
 
 ## What NG-features are implemented:
 + `components`, `modules & shared modules`
-+ `basic routing`
++ `jwt authentication`, `http & services`, `observables, async pipe`,
++ `basic routing`, `models (interfaces)`
 + `custom pipe`
 + `styling in css & bootstrap`
 + `using assets`
