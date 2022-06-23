@@ -5,7 +5,7 @@
         </h5>
     </div>
 </div>
-<div class="row card-group">
+<div class="row card-group" *ngIf="products$ | async as products">
     <div *ngFor="let product of products" class="col-12 col-md-3">
         <ecom-product-card [product]="product"></ecom-product-card>
     </div>
