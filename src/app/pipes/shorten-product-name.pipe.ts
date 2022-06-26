@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ShortenProductNamePipe implements PipeTransform {
 
-  transform(productName: string, end?: number): unknown {
+  transform(productName: string, end?: number): string {
     return productName.slice(0, end);
   }
 }
